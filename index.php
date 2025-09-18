@@ -28,7 +28,7 @@ try {
     }
 
     if ($database !== null && isset($_POST["sql-editor"])) {
-        if (str_starts_with($_POST["sql-editor"], "SELECT")) {
+        if (str_starts_with(strtolower($_POST["sql-editor"]), "select")) {
             $rows = $database->query($_POST["sql-editor"])->fetchAll();
         } else {
             $affected_rows = $database->exec($_POST["sql-editor"]);
